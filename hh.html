@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .success{
+            color:green;
+        }
+        .fail{
+            color: red;
+        }
+    </style>
+
+    <script>
+        function password(){
+          temp_value = document.getElementById("check");
+          temp_p = document.getElementById("passwd");
+          if(temp_value.checked==true){
+            alert("The Textbox is checked");
+            temp_p.type="text"
+          }
+          else{
+            temp_p.type="password";
+          }
+        }
+        function validator(){
+            temp_usr = document.getElementById("usr-name").value;
+            temp_passwd = document.getElementById("passwd").value;
+
+            if(temp_usr=='admin' && temp_passwd =='xavier'){
+                document.getElementById("valid").innerHTML='Login Success!';
+                document.getElementById("valid").className='success';
+            }
+            else{
+                document.getElementById("valid").innerHTML='Login Failed, try again!';
+                document.getElementById("valid").className='fail';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Hello, World!</h1>
+            </div>
+        </div>
+        <form>
+        <div class="row">
+                <div class="col-sm-6">
+                    <label for="usr-name">User Name:</label>
+                </div>
+                <div class="col-sm-6">
+                    <input type="text" placeholder="Enter Username" id="usr-name" />
+                </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="passwd">Password:</label>
+            </div>
+            <div class="col-sm-6">
+                <input type="password" placeholder="Enter your Password" id="passwd" />
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="check"> Show Password</label>
+                    <input type="checkbox" id="check" value="check"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <input type="button" value="Submit" id="submit-btn" onclick="validator()" />
+            </div>
+            <div class="col-sm-6">
+                <input type="reset" value="Clear" id="clear-btn" />
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 id="valid"></h3>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
